@@ -1,0 +1,18 @@
+{
+  "name": "instrumentos-musicais-e-matematica",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Experiência interativa sobre instrumentos musicais, Matemática do som e acústica da Sala São Paulo.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "test": "node --test tests/*.test.js",
+    "build": "node build.mjs",
+    "preview": "node server.mjs dist"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,210 @@
+/* Orquestra interativa: palco, hotspots e camadas instrumentais. */
+.orchestra-mix-shell {
+  display: grid;
+  gap: clamp(32px, 5vw, 64px);
+}
+
+.orchestra-stage-photo {
+  position: relative;
+  width: min(100%, 1100px);
+  aspect-ratio: 1448 / 1086;
+  overflow: hidden;
+  background: #172331;
+  border: 1px solid rgba(30, 53, 87, .2);
+  border-radius: 24px;
+  box-shadow: 18px 20px 0 rgba(45, 91, 123, .19), var(--shadow);
+}
+
+.orchestra-stage-photo > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: saturate(.93) contrast(1.04);
+}
+
+.orchestra-stage-photo::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(9, 15, 23, .05), transparent 52%, rgba(9, 15, 23, .58));
+}
+
+.orchestra-hotspot {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  width: 27px;
+  height: 27px;
+  place-items: center;
+  padding: 0;
+  color: var(--white);
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, .16), 0 4px 16px rgba(0, 0, 0, .4);
+  font-weight: 850;
+  transform: translate(-50%, -50%);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
+}
+
+.orchestra-stage-photo.hotspots-hidden .orchestra-hotspot {
+  pointer-events: none;
+  opacity: 0;
+}
+
+.orchestra-hotspots-toggle {
+  position: absolute;
+  z-index: 3;
+  top: 16px;
+  right: 16px;
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  min-height: 34px;
+  padding: 7px 10px;
+  color: var(--white);
+  background: rgba(8, 12, 18, .82);
+  border: 1px solid rgba(255, 255, 255, .26);
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 800;
+}
+
+.orchestra-hotspots-toggle:hover { background: rgba(29, 45, 63, .96); }
+.orchestra-hotspots-toggle[aria-pressed='true'] { color: rgba(255, 255, 255, .7); }
+.orchestra-hotspot > span { font-size: .7rem; }
+
+.orchestra-hotspot b,
+.orchestra-hotspot small {
+  position: absolute;
+  left: 50%;
+  width: max-content;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 8px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.orchestra-hotspot b {
+  bottom: calc(100% + 10px);
+  padding: 5px 8px;
+  color: var(--white);
+  background: #0b111a;
+  border-radius: 6px 6px 0 0;
+  font-size: .74rem;
+}
+
+.orchestra-hotspot small {
+  bottom: calc(100% - 7px);
+  padding: 3px 8px 6px;
+  color: rgba(255, 255, 255, .82);
+  background: #0b111a;
+  border-radius: 0 0 6px 6px;
+  font-size: .64rem;
+}
+
+.orchestra-hotspot:hover,
+.orchestra-hotspot:focus-visible,
+.orchestra-hotspot.is-highlighted {
+  transform: translate(-50%, -50%) scale(1.18);
+  box-shadow: 0 0 0 7px rgba(255, 255, 255, .24), 0 7px 22px rgba(0, 0, 0, .45);
+}
+
+.orchestra-hotspot:hover b,
+.orchestra-hotspot:hover small,
+.orchestra-hotspot:focus-visible b,
+.orchestra-hotspot:focus-visible small,
+.orchestra-hotspot.is-highlighted b,
+.orchestra-hotspot.is-highlighted small {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.family-cordas { color: #79b6ef; background: #1d5c9a; }
+.family-madeiras { color: #8fd19e; background: #27744a; }
+.family-metais { color: #ffc36d; background: #a55a16; }
+.family-percussao { color: #ff9aa7; background: #9a3042; }
+.family-maestro { color: #fff; background: #050505; }
+
+.orchestra-hotspot[data-name='Caixa'] b,
+.orchestra-hotspot[data-name='Caixa'] small {
+  top: calc(100% + 10px);
+  bottom: auto;
+}
+
+.orchestra-hotspot[data-name='Caixa'] small { top: calc(100% + 33px); }
+
+.orchestra-mixer {
+  display: grid;
+  grid-template-columns: minmax(220px, .42fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 58px);
+  align-items: center;
+  padding: clamp(23px, 4vw, 44px);
+  color: var(--white);
+  background: linear-gradient(145deg, #172333, #0b111a);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 24px;
+  box-shadow: var(--shadow-dark);
+}
+
+.orchestra-player-visual { position: relative; display: grid; min-height: 250px; place-items: center; isolation: isolate; }
+.orchestra-record { position: relative; z-index: 1; width: min(100%, 270px); aspect-ratio: 1; filter: drop-shadow(0 16px 20px rgba(0, 0, 0, .48)); }
+.orchestra-record-art,
+.orchestra-record-cover { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.orchestra-record-cover { inset: 27%; width: 46%; height: 46%; border: 3px solid #d9b44f; box-shadow: 0 0 0 7px rgba(9, 14, 23, .75); }
+.orchestra-player-visual.is-playing .orchestra-record { animation: orchestra-spin 5s linear infinite; }
+.orchestra-particle-stream { position: absolute; z-index: 0; inset: 0; overflow: hidden; pointer-events: none; }
+.orchestra-particle { position: absolute; bottom: 27%; left: 50%; width: var(--size); opacity: 0; transform: translate(-50%, 0) scale(.45) rotate(var(--rotation)); filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .28)); will-change: transform, opacity; }
+.orchestra-player-visual.is-playing .orchestra-particle { animation: orchestra-particle-rise var(--duration) cubic-bezier(.2, .72, .38, 1) var(--delay) infinite; }
+
+@keyframes orchestra-spin { to { transform: rotate(360deg); } }
+@keyframes orchestra-particle-rise {
+  0% { opacity: 0; transform: translate(-50%, 10px) scale(.38) rotate(var(--rotation)); }
+  10% { opacity: .8; }
+  72% { opacity: .55; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--drift)), calc(-1 * var(--rise))) scale(.9) rotate(calc(var(--rotation) + 22deg)); }
+}
+
+.orchestra-mixer-heading span { color: var(--gold-light); font-size: .72rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
+.orchestra-mixer-heading p { margin: 5px 0 24px; color: rgba(255, 255, 255, .64); font-family: var(--serif); font-size: 1.4rem; }
+.orchestra-master-controls { display: grid; grid-template-columns: 1fr auto; gap: 10px; margin-bottom: 17px; }
+.orchestra-master-controls button,
+.orchestra-family-control button { color: var(--white); border: 0; border-radius: 12px; font-weight: 800; }
+.orchestra-master-play { min-height: 52px; background: var(--gold-dark); }
+.orchestra-master-play:hover,
+.orchestra-master-play.is-playing { background: #b88b32; }
+.orchestra-master-pause { min-width: 80px; background: rgba(255, 255, 255, .1); }
+.orchestra-master-pause:hover { background: rgba(255, 255, 255, .18); }
+.orchestra-timeline { display: grid; grid-template-columns: auto 1fr auto; gap: 11px; align-items: center; margin-bottom: 22px; color: rgba(255, 255, 255, .72); font-variant-numeric: tabular-nums; font-size: .78rem; }
+.orchestra-timeline input { width: 100%; accent-color: var(--gold-light); cursor: pointer; }
+.orchestra-family-controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+.orchestra-family-control { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; padding: 15px; background: rgba(255, 255, 255, .035); border: 2px solid var(--family-color); border-radius: 18px; opacity: .5; transition: opacity .2s ease, transform .2s ease, box-shadow .2s ease; }
+.orchestra-family-control.is-active { opacity: 1; }
+.orchestra-family-control:hover { transform: translateY(-3px); box-shadow: 0 9px 22px color-mix(in srgb, var(--family-color) 25%, transparent); }
+.orchestra-family-control.cordas { --family-color: #4c86c6; }
+.orchestra-family-control.madeiras { --family-color: #5f9f72; }
+.orchestra-family-control.metais { --family-color: #d9853b; }
+.orchestra-family-control.percussao { --family-color: #ba5360; }
+.orchestra-family-control > div > span { color: var(--family-color); font-family: var(--serif); font-size: .9rem; }
+.orchestra-family-control h3 { margin: 2px 0 0; color: var(--white); font-size: 1.05rem; line-height: 1.1; }
+.orchestra-family-control p { margin: 4px 0 0; color: rgba(255, 255, 255, .57); font-size: .72rem; }
+.orchestra-family-control button { display: grid; width: 48px; height: 48px; place-items: center; background: var(--family-color); }
+.orchestra-family-control button span { font-size: 1rem; }
+.orchestra-family-control button small { font-size: .6rem; }
+.orchestra-audio-note { margin: 20px 0 0; color: rgba(255, 255, 255, .48); font-size: .76rem; line-height: 1.45; }
+
+@media (max-width: 760px) {
+  .orchestra-stage-photo,
+  .orchestra-mixer { border-radius: 16px; }
+  .orchestra-hotspot { width: 26px; height: 26px; }
+  .orchestra-hotspot > span { font-size: .6rem; }
+  .orchestra-mixer { grid-template-columns: 1fr; }
+  .orchestra-player-visual { min-height: 210px; }
+  .orchestra-record { width: 210px; }
+  .orchestra-family-controls { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orchestra-player-visual.is-playing .orchestra-record,
+  .orchestra-player-visual.is-playing .orchestra-particle { animation: none; opacity: .72; }
+}

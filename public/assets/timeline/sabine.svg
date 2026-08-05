@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+ <defs>
+  <radialGradient id="g" cx="50%" cy="42%" r="75%"><stop offset="0" stop-color="#d0a64b" stop-opacity=".24"/><stop offset=".55" stop-color="#151b27"/><stop offset="1" stop-color="#07080b"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <rect width="900" height="560" rx="28" fill="url(#g)"/>
+ <circle cx="745" cy="125" r="95" fill="#d0a64b" opacity=".09" filter="url(#glow)"/>
+ <text x="72" y="72" fill="#e3c679" font-family="Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="3">FIM DO SÉCULO XIX</text>
+ <text x="72" y="128" fill="#fffdf8" font-family="Georgia,serif" font-size="38">A reverberação se torna calculável</text>
+ <text x="760" y="145" text-anchor="middle" fill="#f7e8b5" font-family="Georgia,serif" font-size="64" filter="url(#glow)">RT₆₀</text>
+ <path d="M95 405 L180 170 H720 L805 405 Z" fill="#d0a64b" opacity=".18" stroke="#d0a64b" stroke-width="4"/><path d="M210 210 Q450 174 690 210" fill="none" stroke="#d0a64b" stroke-width="3" opacity="0.85"/><path d="M210 236 Q450 204 690 236" fill="none" stroke="#d0a64b" stroke-width="3" opacity="0.77"/><path d="M210 262 Q450 234 690 262" fill="none" stroke="#d0a64b" stroke-width="3" opacity="0.69"/><path d="M210 288 Q450 264 690 288" fill="none" stroke="#d0a64b" stroke-width="3" opacity="0.61"/><path d="M210 314 Q450 294 690 314" fill="none" stroke="#d0a64b" stroke-width="3" opacity="0.53"/><path d="M210 340 Q450 324 690 340" fill="none" stroke="#d0a64b" stroke-width="3" opacity="0.44999999999999996"/><path d="M210 366 Q450 354 690 366" fill="none" stroke="#d0a64b" stroke-width="3" opacity="0.37"/><rect x="215" y="155" width="78" height="18" rx="5" fill="#f7e8b5" opacity=".85"/><rect x="315" y="155" width="78" height="18" rx="5" fill="#f7e8b5" opacity=".85"/><rect x="415" y="155" width="78" height="18" rx="5" fill="#f7e8b5" opacity=".85"/><rect x="515" y="155" width="78" height="18" rx="5" fill="#f7e8b5" opacity=".85"/><rect x="615" y="155" width="78" height="18" rx="5" fill="#f7e8b5" opacity=".85"/>
+ <path d="M72 482 H828" stroke="#c8a24a" stroke-width="1.5" opacity=".32"/>
+ <text x="72" y="520" fill="#aeb7c6" font-family="Arial,sans-serif" font-size="16">MATEMÁTICA · MÚSICA · HISTÓRIA</text>
+ </svg>

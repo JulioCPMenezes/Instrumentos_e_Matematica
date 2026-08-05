@@ -1,0 +1,29 @@
+/* Ligação com a Sala São Paulo e experimento do teto móvel. */
+.sala-connection-section { color: var(--white); background: linear-gradient(135deg, #111f34, #243f62 58%, #111b2c); }
+.sala-connection-layout { display: grid; grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr); gap: clamp(30px, 6vw, 90px); align-items: center; }
+.sala-connection-copy h2 { margin: 12px 0 22px; font-size: clamp(2.35rem, 4.8vw, 4.5rem); line-height: .98; }
+.sala-connection-copy > p:last-child { color: rgba(255,255,255,.76); font-size: clamp(1rem, 1.5vw, 1.17rem); line-height: 1.72; }
+.sala-connection-photo { min-height: 440px; overflow: hidden; border: 1px solid rgba(227,198,121,.36); border-radius: var(--radius-lg); box-shadow: 18px 20px 0 rgba(200,162,74,.3), 0 30px 60px rgba(0,0,0,.25); }
+.sala-connection-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sala-connection-topics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: clamp(40px, 6vw, 75px); }
+.sala-connection-topics article { min-height: 195px; padding: 22px; background: rgba(255,255,255,.075); border: 1px solid rgba(255,255,255,.13); border-radius: 16px; }
+.sala-connection-topics span { color: var(--gold-light); font-family: var(--serif); font-size: 1.25rem; }
+.sala-connection-topics h3 { margin: 15px 0 8px; font-size: 1.18rem; }
+.sala-connection-topics p { margin: 0; color: rgba(255,255,255,.67); font-size: .88rem; line-height: 1.55; }
+.sala-connection-transition { max-width: 940px; margin-top: 46px; color: var(--gold-light); font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.55rem); line-height: 1.2; }
+.hall-experiment-section { color: var(--white); background: radial-gradient(circle at 76% 9%, rgba(200,162,74,.15), transparent 25%), #080d16; }
+.hall-experiment-heading { max-width: 780px; margin-bottom: 42px; }
+.hall-experiment-heading h2 { margin: 12px 0 18px; font-size: clamp(2.4rem, 5vw, 4.8rem); }
+.hall-experiment-heading > p:last-child { color: rgba(255,255,255,.68); font-size: clamp(1rem, 1.55vw, 1.16rem); line-height: 1.65; }
+.hall-lab { grid-template-columns: minmax(0, 1.35fr) minmax(380px, .85fr); min-height: 650px; background: linear-gradient(145deg, rgba(36,57,87,.52), rgba(10,18,31,.78)); border-color: rgba(227,198,121,.18); }
+.hall-scene-wrap, .hall-scene-wrap canvas { min-height: 650px; height: 650px; }
+.hall-controls { padding: clamp(28px, 3.5vw, 48px); border-left-color: rgba(227,198,121,.18); }
+.hall-live-metrics { gap: 12px; }
+.hall-live-metrics > div { padding: 18px 12px; }
+.hall-reading-card { margin: 26px 0; padding: 21px; }
+.hall-formula-card { margin-top: 20px; padding: 18px; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.1); border-radius: 14px; }
+.hall-formula-card > strong { display: block; color: var(--gold-light); font-family: var(--serif); font-size: 1.55rem; }
+.hall-formula-vars { display: grid; gap: 6px; margin-top: 12px; color: rgba(255,255,255,.62); font-size: .78rem; }
+.hall-experiment-note { margin: 28px auto 0; padding: 18px 22px; color: rgba(255,255,255,.64); background: rgba(255,255,255,.045); border-left: 3px solid var(--gold-light); border-radius: 0 12px 12px 0; font-size: .84rem; line-height: 1.55; }
+@media (max-width: 980px) { .sala-connection-layout, .hall-lab { grid-template-columns: 1fr; } .sala-connection-photo { min-height: 390px; } .sala-connection-topics { grid-template-columns: repeat(2, 1fr); } .hall-controls { border-top: 1px solid rgba(227,198,121,.18); border-left: 0; } }
+@media (max-width: 640px) { .sala-connection-topics { grid-template-columns: 1fr; } .sala-connection-photo { min-height: 310px; box-shadow: 10px 12px 0 rgba(200,162,74,.28); } .hall-scene-wrap, .hall-scene-wrap canvas { min-height: 430px; height: 430px; } .hall-live-metrics { grid-template-columns: 1fr; } }

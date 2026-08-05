@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+ <defs>
+  <radialGradient id="g" cx="50%" cy="42%" r="75%"><stop offset="0" stop-color="#d36b3d" stop-opacity=".24"/><stop offset=".55" stop-color="#151b27"/><stop offset="1" stop-color="#07080b"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <rect width="900" height="560" rx="28" fill="url(#g)"/>
+ <circle cx="745" cy="125" r="95" fill="#d36b3d" opacity=".09" filter="url(#glow)"/>
+ <text x="72" y="72" fill="#e3c679" font-family="Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="3">SÉCULOS XVI–XVIII</text>
+ <text x="72" y="128" fill="#fffdf8" font-family="Georgia,serif" font-size="38">Doze passos, uma oitava</text>
+ <text x="760" y="145" text-anchor="middle" fill="#f7e8b5" font-family="Georgia,serif" font-size="64" filter="url(#glow)">2¹⁄¹²</text>
+ <rect x="100" y="195" width="46" height="190" rx="8" fill="#d36b3d" opacity="0.35"/><rect x="158" y="207" width="46" height="178" rx="8" fill="#d36b3d" opacity="0.39499999999999996"/><rect x="216" y="219" width="46" height="166" rx="8" fill="#d36b3d" opacity="0.43999999999999995"/><rect x="274" y="195" width="46" height="190" rx="8" fill="#d36b3d" opacity="0.485"/><rect x="332" y="207" width="46" height="178" rx="8" fill="#d36b3d" opacity="0.53"/><rect x="390" y="219" width="46" height="166" rx="8" fill="#d36b3d" opacity="0.575"/><rect x="448" y="195" width="46" height="190" rx="8" fill="#d36b3d" opacity="0.62"/><rect x="506" y="207" width="46" height="178" rx="8" fill="#d36b3d" opacity="0.665"/><rect x="564" y="219" width="46" height="166" rx="8" fill="#d36b3d" opacity="0.71"/><rect x="622" y="195" width="46" height="190" rx="8" fill="#d36b3d" opacity="0.7549999999999999"/><rect x="680" y="207" width="46" height="178" rx="8" fill="#d36b3d" opacity="0.7999999999999999"/><rect x="738" y="219" width="46" height="166" rx="8" fill="#d36b3d" opacity="0.845"/><path d="M105 420 C250 355 650 355 795 420" fill="none" stroke="#f7e8b5" stroke-width="4" stroke-dasharray="12 10"/>
+ <path d="M72 482 H828" stroke="#c8a24a" stroke-width="1.5" opacity=".32"/>
+ <text x="72" y="520" fill="#aeb7c6" font-family="Arial,sans-serif" font-size="16">MATEMÁTICA · MÚSICA · HISTÓRIA</text>
+ </svg>

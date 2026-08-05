@@ -1,0 +1,10 @@
+{
+  "name": "Instrumentos musicais e Matemática",
+  "short_name": "Instrumentos & Matemática",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07080b",
+  "theme_color": "#5b1e2d",
+  "icons": []
+}

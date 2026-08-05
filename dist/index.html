@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Experiência interativa sobre instrumentos musicais, Matemática do som e acústica da Sala São Paulo." name="description"/>
+<meta content="#5b1e2d" name="theme-color"/>
+<title>Instrumentos musicais e Matemática</title>
+<link href="./public/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="./public/manifest.webmanifest" rel="manifest"/>
+<link href="./src/styles/main.css" rel="stylesheet"/>
+<link href="./src/styles/families-section.css" rel="stylesheet"/>
+<link href="./src/styles/orchestra-mix.css" rel="stylesheet"/>
+<link href="./src/styles/construction-filters.css" rel="stylesheet"/>
+<link href="./src/styles/instrument-builder.css" rel="stylesheet"/>
+<link href="./src/styles/reverberation.css" rel="stylesheet"/>
+<link href="./src/styles/hall-acoustics.css" rel="stylesheet"/>
+<script>
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.addEventListener('pageshow', () => window.scrollTo(0, 0));
+</script>
+<script type="importmap">{
+  "imports": {
+    "three": "./src/vendor/three.module.min.js"
+  }
+}</script>
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<div aria-labelledby="intro-title" class="intro" id="intro">
+<canvas aria-label="Palco virtual com instrumentos de diferentes famílias" class="intro-stage" id="intro-stage"></canvas>
+<div aria-hidden="true" class="stage-vignette"></div>
+<div aria-hidden="true" class="stage-beam stage-beam-left"></div>
+<div aria-hidden="true" class="stage-beam stage-beam-right"></div>
+<div class="intro-copy" id="intro-copy">
+<p class="eyebrow">Grupo 5 · Trabalho de Matemática · 2026</p>
+<h1 id="intro-title">Instrumentos musicais e Matemática</h1>
+<p>Como números, formas e proporções ajudam a construir o som</p>
+
+</div>
+<div aria-hidden="true" class="curtain curtain-left"><span></span></div>
+<div aria-hidden="true" class="curtain curtain-right"><span></span></div>
+<div aria-hidden="true" class="curtain-light"></div>
+<div aria-hidden="true" class="intro-instruction" id="intro-instruction"><strong>Clique para abrir as cortinas</strong><span>O espetáculo começa com a sua interação</span></div>
+<button aria-label="Abrir as cortinas e revelar o palco" class="intro-trigger" id="intro-trigger" type="button"></button>
+
+
+</div>
+
+<aside aria-label="Mascote virtual do professor Marcio" class="mascot-widget" hidden="" id="mascot-widget"><canvas aria-label="Modelo 3D do professor Marcio. Arraste para girar e clique para ouvir." class="mascot-canvas" id="mascot-canvas"></canvas></aside>
+<div class="site-content-scale" id="site-content-scale">
+<main id="conteudo">
+<section class="section group-section" data-section-name="O grupo" id="grupo">
+<div class="container group-slide reveal">
+<figure class="group-photo-panel">
+<img alt="Integrantes do Grupo 5 reunidos para o trabalho de Matemática" height="1578" src="./public/assets/visita/integrantes_mat.jpeg" width="996"/>
+<figcaption class="instagram-caption"><img alt="" aria-hidden="true" src="./public/assets/instagram-icon.png"/><span>Foto compartilhada nos stories do perfil <span class="instagram-handle">@marcio.welker</span></span></figcaption>
+
+</figure>
+<div class="group-info-panel">
+<p class="act-label">Apresentação do grupo</p>
+<span class="slide-kicker">Trabalho de Matemática - Grupo 5</span>
+<p class="group-theme"><strong>Tema:</strong> Instrumentos musicais e Matemática</p>
+    <p class="group-list-title">Integrantes</p>
+<div aria-label="Integrantes do grupo" class="group-list">
+<div><span>N° 3</span><p><strong>Caio França</strong></p></div>
+<div><span>N° 6</span><p><strong>Enzo Mota</strong></p></div>
+<div><span>N° 8</span><p><strong>Gabriel Andozia</strong></p></div>
+<div><span>N° 15</span><p><strong>Julio Menezes</strong></p></div>
+</div>
+<div class="teacher-line"><span>Professor</span><strong>Marcio Welker Corrêa</strong></div>
+</div>
+</div>
+</section>
+<section class="section work-objective-section" data-section-name="Objetivo do trabalho" id="objetivo">
+  <div class="container work-objective-heading reveal">
+    <p class="act-label">Roteiro da pesquisa</p>
+    <h2>Objetivo do Trabalho</h2>
+    <div class="question-card">
+      <span>Pergunta-guia</span>
+      <p>Como os instrumentos produzem som e de que maneira a Matemática participa de sua construção e afinação?</p>
+    </div>
+  </div>
+  <div class="container objective-grid">
+    <article class="objective reveal"><span>01</span><h3>Conhecer a orquestra</h3><p>Identificar seus principais instrumentos e famílias.</p></article>
+    <article class="objective reveal"><span>02</span><h3>Compreender o som</h3><p>Explicar o que vibra e como cada família produz som.</p></article>
+    <article class="objective reveal"><span>03</span><h3>Relacionar medidas e frequência</h3><p>Entender como comprimento, tamanho e formato alteram sons graves e agudos.</p></article>
+    <article class="objective reveal"><span>04</span><h3>Encontrar a Matemática</h3><p>Identificar cálculos, fórmulas, medidas e proporções usados na construção dos instrumentos.</p></article>
+  </div>
+</section>
+
+<section class="section sala-sao-paulo-section" data-section-name="Sala São Paulo" id="sala-sao-paulo">
+  <div class="container sala-hero reveal">
+    <img alt="Fachada da Sala São Paulo no Complexo Cultural Júlio Prestes" class="sala-hero-background" height="896" src="./public/assets/fotos/sala-sp-fachada.jpeg" width="1600"/>
+    <h2 class="sala-hero-title">Sala São Paulo</h2>
+    <img alt="" aria-hidden="true" class="sala-hero-foreground" height="994" src="./public/assets/fotos/sala-sp-fachada-recorte.png" width="1775"/>
+  </div>
+  <div class="container sala-story reveal">
+    <div class="sala-copy">
+      <p>Famosa sala de concertos localizada no Complexo Cultural Júlio Prestes, a Sala São Paulo é a casa da Orquestra Sinfônica do Estado de São Paulo, a Osesp. Em seu palco, músicos das famílias das cordas, madeiras, metais e percussão se unem para formar uma orquestra.</p>
+      <p>Além da execução dos músicos, a experiência sonora também depende da arquitetura. O palco, as paredes, os balcões, as poltronas, os materiais e o teto móvel influenciam a maneira como as ondas sonoras se espalham pelo ambiente.</p>
+      <p>Por isso, a Sala São Paulo representa uma conexão entre música, instrumentos, Física e Matemática.</p>
+    </div>
+    <div class="sala-interior-photo">
+      <iframe allowfullscreen="" aria-label="Street View interativo do interior da Sala São Paulo" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!4v1785713237000!6m8!1m7!1s_hSBdfHmeaPtOW3PFbWKrg!2m2!1d-23.5342405!2d-46.6399147!3f327.48!4f18.43!5f0.7820865974627469" title="Street View do interior da Sala São Paulo"></iframe>
+    </div>
+  </div>
+  <div class="container sala-facts reveal">
+    <article><span>01</span><h3>Casa da Osesp</h3><p>É o principal espaço de apresentação da Orquestra Sinfônica do Estado de São Paulo.</p></article>
+    <article><span>02</span><h3>Acústica ajustável</h3><p>O forro é composto por 15 painéis móveis, que permitem adaptar a resposta acústica a diferentes repertórios.</p></article>
+    <article><span>03</span><h3>Matemática no espaço</h3><p>Geometria, volume, materiais, reflexão e reverberação participam do planejamento acústico da sala.</p></article>
+  </div>
+</section>
+<section class="section orchestra-section" data-section-name="Orquestra" id="orquestra">
+  <div class="container orchestra-intro">
+    <div class="orchestra-intro-copy reveal">
+      <h2>O que é uma Orquestra Sinfônica?</h2>
+      <p>Uma orquestra sinfônica é um grande conjunto de músicos que executam obras sob a orientação de um maestro. Seus instrumentos são organizados em quatro grandes famílias: cordas, madeiras, metais e percussão.</p>
+      <p>A disposição dos músicos no palco não é aleatória. As cordas normalmente ficam mais próximas do maestro, as madeiras ocupam a região central, os metais aparecem atrás e a percussão fica ao fundo. Essa organização ajuda a equilibrar instrumentos de intensidades e timbres diferentes.</p>
+    </div>
+    <figure class="orchestra-photo reveal">
+      <img alt="Orquestra sinfônica reunida no palco durante uma apresentação" height="5284" loading="lazy" src="./public/assets/fotos/foto-orquestra.webp" width="7828"/>
+    </figure>
+  </div>
+<section class="section families-section" data-section-name="Famílias" id="familias">
+  <div class="container families-heading reveal">
+    <h2>As Famílias da Orquestra</h2>
+    <p>Entenda como cada família de instrumentos produz o som.</p>
+  </div>
+  <div aria-label="Famílias de instrumentos" class="container family-tabs" role="tablist">
+    <button aria-selected="true" data-family-tab="cordas" role="tab" type="button">Cordas</button>
+    <button aria-selected="false" data-family-tab="madeiras" role="tab" type="button">Madeiras</button>
+    <button aria-selected="false" data-family-tab="metais" role="tab" type="button">Metais</button>
+    <button aria-selected="false" data-family-tab="percussao" role="tab" type="button">Percussão</button>
+  </div>
+  <div class="container family-summary" id="family-summary"></div>
+  <div class="container family-instruments-heading"><p>Instrumentos</p></div>
+  <div class="container instrument-carousel">
+    <button aria-label="Ver instrumentos anteriores" class="instrument-carousel-control" id="instrument-carousel-prev" type="button">←</button>
+    <div aria-label="Lista de instrumentos da família" class="instrument-grid" id="instrument-grid"></div>
+    <button aria-label="Ver próximos instrumentos" class="instrument-carousel-control" id="instrument-carousel-next" type="button">→</button>
+  </div>
+</section>
+  <div class="container orchestra-explorer-heading reveal">
+    <h2>Explore a orquestra</h2>
+    <p>Ative ou pause cada família para montar uma música instrumental original em camadas. Passe o mouse pelo palco para identificar as posições.</p>
+  </div>
+  <div class="container orchestra-mix-shell reveal">
+    <div class="orchestra-stage-photo" id="orchestra-map">
+      <img alt="Palco de orquestra visto de cima, com posições interativas de instrumentos" height="1086" src="./public/assets/fotos/orquestra-de-cima.jpeg" width="1448"/>
+      <button aria-pressed="false" class="orchestra-hotspots-toggle" id="orchestra-hotspots-toggle" type="button"><span aria-hidden="true">◉</span> Ocultar pontos</button>
+      <button aria-label="Gongo, família percussão" class="orchestra-hotspot family-percussao" data-family-key="percussao" data-hotspot="1" data-name="Gongo" style="left:20.234807%; top:14.917127%;" data-family="Percussão" type="button"><span>1</span><b>Gongo</b><small>Família Percussão</small></button>
+      <button aria-label="Xilofone, família percussão" class="orchestra-hotspot family-percussao" data-family-key="percussao" data-hotspot="2" data-name="Xilofone" style="left:30.248619%; top:10.957643%;" data-family="Percussão" type="button"><span>2</span><b>Xilofone</b><small>Família Percussão</small></button>
+      <button aria-label="Bumbo, família percussão" class="orchestra-hotspot family-percussao" data-family-key="percussao" data-hotspot="3" data-name="Bumbo" style="left:40.814917%; top:11.510129%;" data-family="Percussão" type="button"><span>3</span><b>Bumbo</b><small>Família Percussão</small></button>
+      <button aria-label="Caixa, família percussão" class="orchestra-hotspot family-percussao" data-family-key="percussao" data-hotspot="4" data-name="Caixa" style="left:47.928177%; top:9.668508%;" data-family="Percussão" type="button"><span>4</span><b>Caixa</b><small>Família Percussão</small></button>
+      <button aria-label="Tímpanos, família percussão" class="orchestra-hotspot family-percussao" data-family-key="percussao" data-hotspot="5" data-name="Tímpanos" style="left:62.983425%; top:10.405157%;" data-family="Percussão" type="button"><span>5</span><b>Tímpanos</b><small>Família Percussão</small></button>
+      <button aria-label="Tubos sinfônicos, família percussão" class="orchestra-hotspot family-percussao" data-family-key="percussao" data-hotspot="6" data-name="Tubos sinfônicos" style="left:82.872928%; top:12.523020%;" data-family="Percussão" type="button"><span>6</span><b>Tubos sinfônicos</b><small>Família Percussão</small></button>
+      <button aria-label="Pratos suspensos, família percussão" class="orchestra-hotspot family-percussao" data-family-key="percussao" data-hotspot="7" data-name="Pratos suspensos" style="left:81.146409%; top:15.745856%;" data-family="Percussão" type="button"><span>7</span><b>Pratos suspensos</b><small>Família Percussão</small></button>
+      <button aria-label="Trompas, família metais" class="orchestra-hotspot family-metais" data-family-key="metais" data-hotspot="8" data-name="Trompas" style="left:25.207182%; top:27.624309%;" data-family="Metais" type="button"><span>8</span><b>Trompas</b><small>Família Metais</small></button>
+      <button aria-label="Trompete, família metais" class="orchestra-hotspot family-metais" data-family-key="metais" data-hotspot="9" data-name="Trompete" style="left:46.201657%; top:25.874770%;" data-family="Metais" type="button"><span>9</span><b>Trompete</b><small>Família Metais</small></button>
+      <button aria-label="Trombone, família metais" class="orchestra-hotspot family-metais" data-family-key="metais" data-hotspot="10" data-name="Trombone" style="left:66.298343%; top:27.255985%;" data-family="Metais" type="button"><span>10</span><b>Trombone</b><small>Família Metais</small></button>
+      <button aria-label="Tuba, família metais" class="orchestra-hotspot family-metais" data-family-key="metais" data-hotspot="11" data-name="Tuba" style="left:81.077348%; top:29.650092%;" data-family="Metais" type="button"><span>11</span><b>Tuba</b><small>Família Metais</small></button>
+      <button aria-label="Flauta, família madeiras" class="orchestra-hotspot family-madeiras" data-family-key="madeiras" data-hotspot="12" data-name="Flauta" style="left:26.726519%; top:41.160221%;" data-family="Madeiras" type="button"><span>12</span><b>Flauta</b><small>Família Madeiras</small></button>
+      <button aria-label="Oboé, família madeiras" class="orchestra-hotspot family-madeiras" data-family-key="madeiras" data-hotspot="13" data-name="Oboé" style="left:42.127072%; top:38.858195%;" data-family="Madeiras" type="button"><span>13</span><b>Oboé</b><small>Família Madeiras</small></button>
+      <button aria-label="Clarinete, família madeiras" class="orchestra-hotspot family-madeiras" data-family-key="madeiras" data-hotspot="14" data-name="Clarinete" style="left:55.455801%; top:39.502762%;" data-family="Madeiras" type="button"><span>14</span><b>Clarinete</b><small>Família Madeiras</small></button>
+      <button aria-label="Fagote, família madeiras" class="orchestra-hotspot family-madeiras" data-family-key="madeiras" data-hotspot="15" data-name="Fagote" style="left:72.099448%; top:41.712707%;" data-family="Madeiras" type="button"><span>15</span><b>Fagote</b><small>Família Madeiras</small></button>
+      <button aria-label="Harpa, família cordas" class="orchestra-hotspot family-cordas" data-family-key="cordas" data-hotspot="16" data-name="Harpa" style="left:7.527624%; top:48.342541%;" data-family="Cordas" type="button"><span>16</span><b>Harpa</b><small>Família Cordas</small></button>
+      <button aria-label="Piano, família cordas" class="orchestra-hotspot family-cordas" data-family-key="cordas" data-hotspot="17" data-name="Piano" style="left:9.461326%; top:61.141805%;" data-family="Cordas" type="button"><span>17</span><b>Piano</b><small>Família Cordas</small></button>
+      <button aria-label="Violino, família cordas" class="orchestra-hotspot family-cordas" data-family-key="cordas" data-hotspot="18" data-name="Violino" style="left:26.450276%; top:67.863720%;" data-family="Cordas" type="button"><span>18</span><b>Violino</b><small>Família Cordas</small></button>
+      <button aria-label="Viola, família cordas" class="orchestra-hotspot family-cordas" data-family-key="cordas" data-hotspot="19" data-name="Viola" style="left:49.378453%; top:56.629834%;" data-family="Cordas" type="button"><span>19</span><b>Viola</b><small>Família Cordas</small></button>
+      <button aria-label="Violoncelo, família cordas" class="orchestra-hotspot family-cordas" data-family-key="cordas" data-hotspot="20" data-name="Violoncelo" style="left:68.370166%; top:69.060773%;" data-family="Cordas" type="button"><span>20</span><b>Violoncelo</b><small>Família Cordas</small></button>
+      <button aria-label="Contrabaixo, família cordas" class="orchestra-hotspot family-cordas" data-family-key="cordas" data-hotspot="21" data-name="Contrabaixo" style="left:88.674033%; top:58.471455%;" data-family="Cordas" type="button"><span>21</span><b>Contrabaixo</b><small>Família Cordas</small></button>
+      <button aria-label="Maestro, coordena a orquestra" class="orchestra-hotspot family-maestro" data-family-key="maestro" data-hotspot="22" data-name="Maestro" style="left:48.964088%; top:78.176796%;" type="button"><span>22</span><b>Maestro</b><small>Coordena a orquestra</small></button>
+    </div>
+    <aside class="orchestra-mixer" aria-label="Mesa de mixagem das famílias da orquestra">
+      <div class="orchestra-player-visual" aria-hidden="true" id="orchestra-player-visual">
+        <div class="orchestra-particle-stream"></div>
+        <div class="orchestra-record"><img class="orchestra-record-art" src="./public/assets/audio/orquestra/visual/disco.webp" alt=""/><img class="orchestra-record-cover" src="./public/assets/audio/orquestra/visual/capa-star-wars.jpg" alt=""/></div>
+      </div>
+      <div class="orchestra-mixer-content">
+        <div class="orchestra-mixer-heading"><span>Mixagem ao vivo</span><p>Monte a sua orquestra</p></div>
+        <div class="orchestra-master-controls">
+          <button class="orchestra-master-play" id="orchestra-master-play" type="button"><span aria-hidden="true">▶</span> Tocar todas</button>
+          <button class="orchestra-master-pause" id="orchestra-master-pause" type="button">Pausar</button>
+        </div>
+        <div class="orchestra-timeline"><span id="orchestra-current-time">0:00</span><input aria-label="Linha do tempo da música" id="orchestra-timeline" max="184.85" min="0" step="0.1" type="range" value="0"/><span id="orchestra-duration">3:04</span></div>
+        <div class="orchestra-family-controls">
+          <article class="orchestra-family-control cordas is-active"><div><span>01</span><h3>Cordas</h3><p>Camada harmônica</p></div><button aria-label="Pausar cordas" data-orchestra-family="cordas" type="button"><span aria-hidden="true">Ⅱ</span><small>Pausar</small></button></article>
+          <article class="orchestra-family-control madeiras is-active"><div><span>02</span><h3>Madeiras</h3><p>Melodia aérea</p></div><button aria-label="Pausar madeiras" data-orchestra-family="madeiras" type="button"><span aria-hidden="true">Ⅱ</span><small>Pausar</small></button></article>
+          <article class="orchestra-family-control metais is-active"><div><span>03</span><h3>Metais</h3><p>Base de impacto</p></div><button aria-label="Pausar metais" data-orchestra-family="metais" type="button"><span aria-hidden="true">Ⅱ</span><small>Pausar</small></button></article>
+          <article class="orchestra-family-control percussao is-active"><div><span>04</span><h3>Percussão + harpa e piano</h3><p>Pulso e brilho da peça</p></div><button aria-label="Pausar percussão, harpa e piano" data-orchestra-family="percussao" type="button"><span aria-hidden="true">Ⅱ</span><small>Pausar</small></button></article>
+        </div>
+        <p class="orchestra-audio-note">As quatro faixas seguem a mesma linha do tempo: combine, isole ou pause cada família.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+<section class="section movement-sound-section" data-section-name="Do movimento ao som" id="movimento-ao-som">
+  <div class="container movement-sound-heading reveal">
+    <p class="act-label">Conceitos básicos</p>
+    <h2>Do Movimento Ao Som</h2>
+    <p>Todo som começa com uma vibração. Quando uma corda, uma membrana, uma barra ou uma coluna de ar vibra, ela movimenta o ar ao seu redor. Essa perturbação se transforma em uma onda sonora, que se propaga até o ouvido e é interpretada pelo cérebro.</p>
+  </div>
+  <ol aria-label="Caminho percorrido pelo som" class="container sound-path reveal">
+    <li>Fonte vibra</li><li>O ar é perturbado</li><li>A onda se propaga</li><li>O ouvido recebe</li><li>O cérebro interpreta</li>
+  </ol>
+  <div class="container movement-concept-grid">
+    <article class="movement-concept reveal"><span aria-hidden="true">f</span><h3>Frequência</h3><p>Número de vibrações realizadas por segundo.</p></article>
+    <article class="movement-concept reveal"><span aria-hidden="true">T</span><h3>Período</h3><p>Tempo necessário para completar uma vibração.</p><b>T = 1 / f</b></article>
+    <article class="movement-concept reveal"><span aria-hidden="true">λ</span><h3>Comprimento de onda</h3><p>Distância ocupada por um ciclo completo da onda.</p><b>λ = v / f</b></article>
+    <article class="movement-concept reveal"><span aria-hidden="true">A</span><h3>Amplitude</h3><p>Representa o tamanho da oscilação da onda e está relacionada à intensidade sonora.</p></article>
+  </div>
+</section>
+
+<section class="section pitch-section" data-section-name="Frequência" id="frequencia">
+  <div class="container pitch-heading reveal">
+    <p class="act-label">Frequência</p>
+    <h2>O Que Faz Um Som Ser Grave Ou Agudo?</h2>
+    <p>Todo som começa com uma vibração. A velocidade com que essa vibração acontece determina se o som será percebido como grave ou agudo.</p>
+  </div>
+  <div class="container pitch-comparison reveal">
+    <article class="pitch-card pitch-card-low">
+      <div class="pitch-card-topline"><span>01</span><p>Menos vibrações</p></div>
+      <h3>Som grave</h3>
+      <div aria-hidden="true" class="pitch-wave pitch-wave-low"><svg viewBox="0 0 640 160" preserveAspectRatio="none"><path d="M0 80 C40 8 80 8 120 80 S200 152 240 80 S320 8 360 80 S440 152 480 80 S560 8 600 80 S640 152 680 80"/></svg></div>
+      <p>O som grave possui uma frequência mais baixa, realizando menos vibrações por segundo.</p>
+      <div class="pitch-card-footer"><span>Exemplo: contrabaixo ou tuba</span><button class="pitch-listen-button" data-pitch-frequency="110" type="button"><span aria-hidden="true">▶</span> Ouvir som grave</button></div>
+    </article>
+    <article class="pitch-card pitch-card-high">
+      <div class="pitch-card-topline"><span>02</span><p>Mais vibrações</p></div>
+      <h3>Som agudo</h3>
+      <div aria-hidden="true" class="pitch-wave pitch-wave-high"><svg viewBox="0 0 640 160" preserveAspectRatio="none"><path d="M0 80 C10 24 20 24 30 80 S50 136 60 80 S80 24 90 80 S110 136 120 80 S140 24 150 80 S170 136 180 80 S200 24 210 80 S230 136 240 80 S260 24 270 80 S290 136 300 80 S320 24 330 80 S350 136 360 80 S380 24 390 80 S410 136 420 80 S440 24 450 80 S470 136 480 80 S500 24 510 80 S530 136 540 80 S560 24 570 80 S590 136 600 80 S620 24 630 80 S650 136 660 80"/></svg></div>
+      <p>O som agudo possui uma frequência mais alta, realizando mais vibrações por segundo.</p>
+      <div class="pitch-card-footer"><span>Exemplo: violino ou flautim</span><button class="pitch-listen-button" data-pitch-frequency="880" type="button"><span aria-hidden="true">▶</span> Ouvir som agudo</button></div>
+    </article>
+  </div>
+  <p class="container pitch-statement reveal"><strong>Menor frequência</strong><span>→</span> som mais grave <i></i><strong>Maior frequência</strong><span>→</span> som mais agudo</p>
+</section>
+<section class="section frequency-explainer-section" data-section-name="O Que É Frequência" id="o-que-e-frequencia">
+  <div class="container frequency-explainer-heading reveal">
+    <p class="act-label">O Que É Frequência?</p>
+    <h2>Frequência: Medindo As Vibrações</h2>
+    <p>Frequência é a quantidade de ciclos ou vibrações que acontecem durante um intervalo de tempo. Ela é medida em hertz, representado por Hz. Um som de 440 Hz, por exemplo, corresponde a 440 vibrações por segundo.</p>
+  </div>
+  <div class="container frequency-explainer-layout">
+    <article class="frequency-formula-card reveal">
+      <p>Fórmula</p>
+      <div class="frequency-formula">f = <span><b>N</b><i>Δt</i></span></div>
+      <dl>
+        <div><dt>f</dt><dd>frequência, medida em hertz;</dd></div>
+        <div><dt>N</dt><dd>quantidade de vibrações ou ciclos;</dd></div>
+        <div><dt>Δt</dt><dd>intervalo de tempo, medido em segundos.</dd></div>
+      </dl>
+    </article>
+    <article class="frequency-example-card reveal">
+      <p>Exemplo</p>
+      <h3>200 vibrações em 1 segundo</h3>
+      <div class="frequency-example-equation"><span>f = <em><b>200</b><i>1</i></em></span><strong>= 200 Hz</strong></div>
+      <p>Se uma fonte realiza 200 vibrações em 1 segundo, sua frequência é 200 Hz.</p>
+    </article>
+  </div>
+  <div class="container frequency-comparison reveal">
+    <div><strong>Frequência Baixa</strong><span>Menos vibrações</span><b>Som grave</b><small>Exemplo: tuba</small></div>
+    <div><strong>Frequência Alta</strong><span>Mais vibrações</span><b>Som agudo</b><small>Exemplo: flautim</small></div>
+  </div>
+  <div class="container frequency-simulator reveal" id="frequency-simulator">
+    <div class="frequency-simulator-copy">
+      <p class="act-label">Simulador de Frequência</p>
+      <h3>Ouça A Frequência Mudar</h3>
+      <p>Movimente o controle e observe como o aumento ou a diminuição da frequência modifica a onda e a altura do som.</p>
+      <label for="frequency-simulator-input"><span>50 Hz <b>← Grave</b></span><output id="frequency-simulator-output">440 Hz</output><span><b>Agudo →</b> 1.000 Hz</span></label>
+      <input aria-label="Frequência do simulador" id="frequency-simulator-input" max="1000" min="50" step="1" type="range" value="440"/>
+      <div class="frequency-simulator-actions"><button class="primary-button" id="frequency-simulator-play" type="button">Ouvir</button><button class="frequency-stop-button" id="frequency-simulator-stop" type="button">Parar</button></div>
+    </div>
+    <div class="frequency-simulator-visual">
+      <canvas aria-label="Onda animada que representa a frequência selecionada" id="frequency-simulator-canvas"></canvas>
+      <div class="frequency-simulator-metrics"><div><span>Classificação</span><strong id="frequency-simulator-classification">Média</strong></div><div><span>Período</span><strong id="frequency-simulator-period">2,27 ms</strong></div><div><span>Comprimento de onda</span><strong id="frequency-simulator-wavelength">0,78 m</strong></div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section frequency-changes-section" data-section-name="Mudança de frequência" id="mudanca-frequencia">
+  <div class="container section-heading reveal">
+    <p class="act-label">Frequência nas famílias</p>
+    <h2>Como os instrumentos mudam de nota?</h2>
+    <p>Cada família instrumental utiliza um mecanismo diferente para modificar a frequência. Em alguns instrumentos muda-se o comprimento de uma corda; em outros, o caminho do ar, a tensão de uma membrana ou o tamanho de uma barra.</p>
+  </div>
+  <div class="container frequency-family-grid">
+    <article class="frequency-family-card reveal"><span>01</span><h3>Cordas</h3><p>A frequência depende principalmente do comprimento, da tensão, da espessura e do material da corda.</p><div><b>Exemplo</b><p>Quando o músico pressiona uma corda, seu comprimento vibrante diminui e a nota fica mais aguda.</p></div></article>
+    <article class="frequency-family-card reveal"><span>02</span><h3>Madeiras</h3><p>Furos e chaves alteram o comprimento efetivo da coluna de ar.</p><div><b>Exemplo</b><p>Ao abrir determinados furos, o caminho do ar diminui e a frequência tende a aumentar.</p></div></article>
+    <article class="frequency-family-card reveal"><span>03</span><h3>Metais</h3><p>A frequência muda pela vibração dos lábios e pela alteração do comprimento do tubo.</p><div><b>Exemplo</b><p>Válvulas acrescentam trechos de tubo, enquanto a vara do trombone aumenta ou diminui o caminho do ar.</p></div></article>
+    <article class="frequency-family-card reveal"><span>04</span><h3>Percussão</h3><p>A frequência depende da parte que vibra.</p><div><b>Exemplos</b><ul><li>No tímpano, muda-se a tensão da membrana.</li><li>No xilofone, cada barra possui dimensões diferentes.</li></ul></div></article>
+  </div>
+  <p class="container frequency-family-closing reveal">Essas relações são utilizadas tanto pelos músicos quanto pelos profissionais que projetam e constroem os instrumentos.</p>
+</section>
+<section class="section math-section" data-section-name="Laboratório matemático" id="matematica">
+<div class="container section-heading reveal">
+  <p class="act-label">6 · Matemática na construção</p>
+  <h2>Como a Matemática ajuda a construir instrumentos?</h2>
+  <p>As medidas não são escolhidas aleatoriamente. Comprimento, tensão, material, espessura, furos, válvulas e formato ajudam o construtor a estimar as frequências antes dos testes e ajustes finais.</p>
+</div>
+<div class="container construction-overview reveal">
+  <article class="construction-overview-copy">
+    <h3>Medir para fazer soar</h3>
+    <p>As fórmulas são modelos iniciais: orientam a construção, mas instrumentos reais também exigem medições, escuta e pequenos ajustes.</p>
+    <ul><li>cordas e tubos</li><li>tensão e espessura</li><li>furos, chaves e válvulas</li><li>raio, barras e ressonadores</li></ul>
+  </article>
+  <article class="construction-overview-models">
+    <h3>Um modelo para cada família</h3>
+    <div class="table-scroll"><table class="model-table"><thead><tr><th>Família</th><th>Modelo principal</th></tr></thead><tbody><tr><td>Cordas</td><td>Corda tensionada</td></tr><tr><td>Madeiras</td><td>Coluna de ar</td></tr><tr><td>Metais</td><td>Ressonâncias e comprimento acústico</td></tr><tr><td>Percussão</td><td>Membranas, barras e placas</td></tr></tbody></table></div>
+  </article>
+</div>
+<div aria-label="Filtrar explicações por família de instrumentos" class="container family-tabs construction-filters reveal" role="tablist">
+  <button aria-controls="construction-cordas" aria-selected="true" class="active" data-construction-filter="cordas" role="tab" type="button">Cordas</button>
+  <button aria-controls="construction-madeiras" aria-selected="false" data-construction-filter="madeiras" role="tab" tabindex="-1" type="button">Madeiras</button>
+  <button aria-controls="construction-metais" aria-selected="false" data-construction-filter="metais" role="tab" tabindex="-1" type="button">Metais</button>
+  <button aria-controls="construction-percussao" aria-selected="false" data-construction-filter="percussao" role="tab" tabindex="-1" type="button">Percussão</button>
+</div>
+<div class="container construction-guide reveal">
+  <article aria-labelledby="construction-cordas-title" class="construction-topic active" data-construction-panel="cordas" id="construction-cordas" role="tabpanel">
+    <div class="construction-topic-heading"><p class="topic-number">Cordas</p><h3 id="construction-cordas-title">A nota nasce da corda que vibra</h3><p>Violino, viola, violoncelo, contrabaixo, harpa e piano são cordas friccionadas, dedilhadas ou percutidas. O construtor combina comprimento vibrante, tensão, calibre, material, cavalete e corpo ressonante.</p></div>
+    <div class="construction-topic-content"><div class="construction-relations"><span>Corda mais curta <b>→</b> som mais agudo</span><span>Mais tensão <b>→</b> frequência maior</span><span>Mais massa por metro <b>→</b> som mais grave</span></div><p>A velocidade da onda aumenta com a tensão e diminui quando a corda tem mais massa por metro.</p><details class="math-formula" open><summary>Fórmula e variáveis</summary><div><div class="formula-display">fₙ = n/(2L) · √(Fᵀ/μ)</div><dl><div><dt>fₙ</dt><dd>frequência do modo, em Hz</dd></div><div><dt>n</dt><dd>modo de vibração, sem unidade</dd></div><div><dt>L</dt><dd>comprimento vibrante, em m</dd></div><div><dt>Fᵀ</dt><dd>força de tensão, em N</dd></div><div><dt>μ</dt><dd>densidade linear, em kg/m</dd></div></dl><p>Para um simulador da nota principal, use n = 1.</p></div></details><details class="construction-details"><summary>Aprofundar: harmônicos, densidade, aplicações e limites</summary><div class="construction-detail-grid"><section><h4>Modos e densidade linear</h4><p>n = 1 é a fundamental; n = 2, 3 e 4 são harmônicos. A densidade linear é μ = m/ℓ: massa de um trecho dividida pelo seu comprimento. Cordas grossas ou de material mais denso tendem a ter μ maior.</p></section><section><h4>Contas rápidas</h4><p>f ∝ 1/L: reduzir L à metade dobra f. f ∝ √Fᵀ: para dobrar f apenas pela tensão, Fᵀ precisa quadruplicar. f ∝ 1/√μ: quadruplicar μ reduz f à metade.</p></section><section><h4>Na construção</h4><p>Violino usa cordas mais curtas e leves para registros altos; contrabaixo usa cordas maiores e densas. No piano, as graves são longas, grossas e muitas vezes enroladas; a tábua harmônica irradia o som.</p></section></div><p class="construction-limit"><strong>Limite do modelo:</strong> a fórmula descreve uma corda ideal, não o timbre completo, a vibração do cavalete e da madeira, o volume ou as ressonâncias internas.</p></details></div>
+  </article>
+  <article aria-labelledby="construction-madeiras-title" class="construction-topic" data-construction-panel="madeiras" hidden id="construction-madeiras" role="tabpanel">
+    <div class="construction-topic-heading"><p class="topic-number">Madeiras</p><h3 id="construction-madeiras-title">O ar também tem comprimento</h3><p>Flautim, flauta, oboé, clarinete, fagote e contrafagote dependem da coluna de ar dentro do corpo/tubo. Furos, chaves, embocadura, palheta, diâmetro e conicidade orientam a construção.</p></div>
+    <div class="construction-topic-content"><div class="construction-relations"><span>Coluna de ar maior <b>→</b> som mais grave</span><span>Abrir um furo <b>→</b> caminho efetivo menor</span><span>Tubo cônico e cilíndrico <b>→</b> ressonâncias diferentes</span></div><p>O comprimento acústico efetivo é a parte da coluna de ar que vibra principalmente para uma nota; ele não é sempre igual à medida externa com régua.</p><details class="math-formula" open><summary>Fórmulas e variáveis</summary><div><div class="formula-display">Aberto: fₙ = nv/(2Lₑf) &nbsp; · &nbsp; Fechado: fₙ = (2n−1)v/(4Lₑf)</div><dl><div><dt>fₙ</dt><dd>frequência do modo, em Hz</dd></div><div><dt>n</dt><dd>número do modo</dd></div><div><dt>v</dt><dd>velocidade do som, em m/s</dd></div><div><dt>Lₑf</dt><dd>comprimento acústico efetivo, em m</dd></div></dl><p>A flauta se aproxima de um tubo aberto; o clarinete cilíndrico, de um fechado em uma extremidade.</p></div></details><details class="construction-details"><summary>Aprofundar: modos, furos, formato e limites</summary><div class="construction-detail-grid"><section><h4>Tubos aberto e fechado</h4><p>No tubo fechado, 2n−1 produz os modos ímpares 1, 3, 5, 7… A fundamental de um tubo fechado ideal com o mesmo comprimento é aproximadamente metade da de um tubo aberto.</p></section><section><h4>Efeito das variáveis</h4><p>f ∝ 1/Lₑf: dobrar o comprimento reduz aproximadamente a fundamental pela metade. A 20 °C, v é cerca de 343 m/s; se v aumenta, a ressonância também aumenta um pouco.</p></section><section><h4>Na construção</h4><p>Flautim: coluna menor, notas mais altas. Fagote: tubo longo e dobrado, notas mais baixas. A posição dos furos também depende de diâmetro, chaminé, interação entre furos e formato interno.</p></section></div><p class="construction-limit"><strong>Limite do modelo:</strong> embocadura, palheta, campana, correção de extremidade, diâmetro e conicidade tornam o instrumento real mais complexo.</p></details></div>
+  </article>
+  <article aria-labelledby="construction-metais-title" class="construction-topic" data-construction-panel="metais" hidden id="construction-metais" role="tabpanel">
+    <div class="construction-topic-heading"><p class="topic-number">Metais</p><h3 id="construction-metais-title">Válvulas e vara mudam o caminho do ar</h3><p>No trompete, trompa, trombone e tuba, os lábios vibram no bocal e interagem com as ressonâncias da coluna de ar. Tubo, bocal, campana e partes cilíndricas ou cônicas formam um sistema integrado.</p></div>
+    <div class="construction-topic-content"><div class="construction-relations"><span>Tubo menor <b>→</b> frequência maior</span><span>Tubo maior <b>→</b> frequência menor</span><span>Válvulas e vara <b>→</b> acrescentam comprimento</span></div><p>O músico também muda a tensão e o formato dos lábios para escolher ressonâncias diferentes.</p><details class="math-formula" open><summary>Fórmula e variáveis</summary><div><div class="formula-display">L′ = L · 2ᵏ⁄¹² &nbsp; · &nbsp; ΔL = L(2ᵏ⁄¹² − 1)</div><dl><div><dt>L</dt><dd>comprimento acústico inicial, em m</dd></div><div><dt>L′</dt><dd>novo comprimento, em m</dd></div><div><dt>ΔL</dt><dd>tubo acrescentado, em m</dd></div><div><dt>k</dt><dd>semitons que a nota desce</dd></div><div><dt>2ᵏ⁄¹²</dt><dd>razão do temperamento igual</dd></div></dl></div></details><details class="construction-details"><summary>Aprofundar: contas das válvulas e construção</summary><div class="construction-detail-grid"><section><h4>Semitons em comprimento</h4><p>Para 1 semitom, ΔL ≈ 0,0595L; para 2, ≈ 0,1225L; para 3, ≈ 0,1892L. Cada válvula insere um trecho calculado para alterar a nota.</p></section><section><h4>Aplicações</h4><p>No trompete, combinações de três válvulas criam notas intermediárias. No trombone, a vara muda L continuamente. Trompa e tuba enrolam vários metros de tubo para caberem no instrumento.</p></section><section><h4>Afinação real</h4><p>Combinar válvulas pode desafinar porque cada uma foi dimensionada para o tubo inicial. Por isso há bombas móveis, válvulas extras e correção do músico.</p></section></div><p class="construction-limit"><strong>Limite do modelo:</strong> bocal, garganta, campana e perfil do tubo alteram as ressonâncias; comprimento é uma ótima primeira aproximação, não o instrumento inteiro.</p></details></div>
+  </article>
+  <article aria-labelledby="construction-percussao-title" class="construction-topic" data-construction-panel="percussao" hidden id="construction-percussao" role="tabpanel">
+    <div class="construction-topic-heading"><p class="topic-number">Percussão</p><h3 id="construction-percussao-title">Não existe uma fórmula única</h3><p>Membranas, barras, placas e discos vibram de maneiras diferentes. Tímpano, xilofone e marimba permitem modelos úteis; pratos, gongos e triângulos têm muitos modos complexos.</p></div>
+    <div class="construction-topic-content"><div class="percussion-construction"><div><h4>Tímpano</h4><p>Raio, material, espessura, densidade superficial, tensão, corpo e pedal definem a afinação.</p></div><div><h4>Xilofone e marimba</h4><p>Comprimento, espessura, largura, rigidez, densidade, entalhe e pontos de apoio afinam cada barra.</p></div></div><p class="construction-closing">Pratos, triângulos e gongos produzem modos simultâneos e não têm uma única nota simples.</p><details class="math-formula" open><summary>Fórmulas e variáveis</summary><div><div class="formula-display">Membrana: f₀₁ ≈ 0,3827/R · √(Tₘ/σ)</div><dl><div><dt>f₀₁</dt><dd>modo mais baixo, em Hz</dd></div><div><dt>R</dt><dd>raio, em m</dd></div><div><dt>Tₘ</dt><dd>tensão por comprimento, em N/m</dd></div><div><dt>σ</dt><dd>densidade superficial, em kg/m²</dd></div><div><dt>0,3827</dt><dd>constante do primeiro modo</dd></div></dl><div class="formula-display">Barra: f₁ ≈ 1,028 · h/L² · √(E/ρ)</div><dl><div><dt>f₁</dt><dd>fundamental estimada, em Hz</dd></div><div><dt>h</dt><dd>espessura, em m</dd></div><div><dt>L</dt><dd>comprimento, em m</dd></div><div><dt>E</dt><dd>módulo de Young, em Pa</dd></div><div><dt>ρ</dt><dd>densidade, em kg/m³</dd></div></dl></div></details><details class="construction-details"><summary>Aprofundar: efeitos, entalhe e sons complexos</summary><div class="construction-detail-grid"><section><h4>Membranas</h4><p>Elas vibram em duas dimensões, com círculos e linhas nodais descritos por funções de Bessel. Dobrar R reduz f aproximadamente à metade; quadruplicar Tₘ dobra f; aumentar σ reduz f. O pedal do tímpano altera Tₘ.</p></section><section><h4>Barras</h4><p>f ∝ 1/L²: dobrar L reduz a frequência para um quarto. Também vale f ∝ h e f ∝ √E/√ρ. Remover material no entalhe inferior reduz rigidez e permite o ajuste fino.</p></section><section><h4>Pratos e gongos</h4><p>Diâmetro, espessura, curvatura, liga, distribuição de massa e suspensão controlam vários modos não harmônicos. Por isso não existe uma conta única para todo o som.</p></section></div><p class="construction-limit"><strong>Limite do modelo:</strong> membranas reais têm rigidez, ar interno e corpo; barras reais têm entalhes e formatos que se afastam do modelo uniforme.</p></details></div>
+  </article>
+</div>
+<div class="container construction-resonator reveal"><span>05</span><div><h3>O corpo também participa: caixa de ressonância</h3><p>Em violino, viola, violoncelo, contrabaixo, harpa, piano e alguns instrumentos de percussão, o corpo transmite a vibração e movimenta mais ar. Volume, abertura, espessura, curvatura e material alteram projeção e timbre.</p><details class="math-formula" open><summary>Fórmula e variáveis</summary><div><div class="formula-display">fᴴ = c/(2π) · √(A/(V·Lₑf))</div><dl><div><dt>fᴴ</dt><dd>ressonância do ar interno, em Hz</dd></div><div><dt>c</dt><dd>velocidade do som, em m/s</dd></div><div><dt>A</dt><dd>área total da abertura, em m²</dd></div><div><dt>V</dt><dd>volume interno, em m³</dd></div><div><dt>Lₑf</dt><dd>comprimento efetivo da abertura, em m</dd></div></dl><p>Abertura maior eleva a ressonância; volume ou abertura efetivamente mais longa a reduzem.</p></div></details><details class="construction-details"><summary>Aprofundar: o que o modelo explica</summary><div class="construction-detail-grid construction-detail-grid-two"><section><h4>Modelo de Helmholtz</h4><p>Ele descreve bem garrafas e ressonadores simples e aproxima uma das ressonâncias do ar interno de instrumentos de corda.</p></section><section><h4>Além da cavidade</h4><p>Em um instrumento real, tampo, fundo, laterais, cavalete e tábua harmônica também vibram e ajudam a irradiar o som.</p></section></div><p class="construction-limit"><strong>Limite do modelo:</strong> não representa sozinho todas as ressonâncias e o timbre do instrumento completo.</p></details></div></div>
+<div class="container instrument-builder reveal" id="construtor-instrumento">
+  <div class="instrument-builder-copy">
+    <p class="act-label">Experimento interativo</p>
+    <h2>Construa seu instrumento</h2>
+    <p>Escolha as dimensões de um instrumento de cordas. O desenho muda na hora e, ao ouvir, você escuta a frequência calculada pelo comprimento do braço.</p>
+    <div class="formula-display light">f = 1/(2L) · √(T/μ)</div>
+    <div aria-live="polite" class="builder-formula" id="builder-formula">
+      <span>Substituindo os valores</span>
+      <strong id="builder-formula-values">f = 1/(2 × 0,80 m) · √(108,9 N / 0,001 kg/m) = 206,3 Hz</strong>
+      <small>Tensão e densidade da corda permanecem fixas neste modelo.</small>
+    </div>
+  </div>
+  <div class="instrument-builder-stage">
+    <canvas aria-label="Instrumento de cordas construído com as dimensões escolhidas" id="instrument-builder-canvas"></canvas>
+    <p class="instrument-builder-hint">Altere as medidas para ver o instrumento ganhar forma.</p>
+  </div>
+  <div class="instrument-builder-controls">
+    <label for="builder-width">Largura do corpo <output id="builder-width-out">50 cm</output></label>
+    <input id="builder-width" max="100" min="20" type="range" value="50"/>
+    <label for="builder-height">Altura do corpo <output id="builder-height-out">60 cm</output></label>
+    <input id="builder-height" max="120" min="30" type="range" value="60"/>
+    <label for="builder-neck">Comprimento do braço <output id="builder-neck-out">80 cm</output></label>
+    <input id="builder-neck" max="150" min="30" type="range" value="80"/>
+    <label for="builder-strings">Número de cordas <output id="builder-strings-out">4</output></label>
+    <input id="builder-strings" max="8" min="1" type="range" value="4"/>
+    <label for="builder-waist">Curvatura do corpo <output id="builder-waist-out">30</output></label>
+    <input id="builder-waist" max="60" min="0" type="range" value="30"/>
+    <label for="builder-hole">Abertura sonora <output id="builder-hole-out">20</output></label>
+    <input id="builder-hole" max="50" min="5" type="range" value="20"/>
+    <div class="result-grid builder-results">
+      <div><span>Seu instrumento</span><strong id="builder-classification">Violino</strong></div>
+      <div><span>Frequência</span><strong id="builder-frequency">—</strong></div>
+      <div><span>Nota próxima</span><strong id="builder-note">—</strong></div>
+    </div>
+    <button class="play-lab" id="builder-play" type="button">Ouvir meu instrumento</button>
+  </div>
+</div></section>
+<section class="section reverb-section" data-section-name="Reverberação" id="reverberacao">
+  <div class="container reverb-heading reveal"><p class="act-label">7 · Acústica da sala</p><h2>O que acontece depois que o som sai do instrumento?</h2><p>Depois de ser produzido, o som se espalha pelo ambiente. As ondas encontram paredes, teto, piso, poltronas e pessoas. Parte da energia é absorvida e parte é refletida.</p></div>
+  <div class="container reverb-definition reveal"><span>Reverberação</span><p>Reverberação é a permanência do som em um ambiente causada pelas diversas reflexões que continuam chegando ao ouvinte depois que a fonte sonora parou.</p></div>
+  <div class="container reverb-comparison"><article class="reverb-card reverb-card-dry reveal"><p class="reverb-card-number">01</p><h3>Pouca reverberação</h3><ul><li>o som desaparece rapidamente;</li><li>as notas são percebidas com maior separação;</li><li>existe maior sensação de clareza.</li></ul><button class="reverb-listen" data-reverb="short" type="button">Ouvir pouca reverberação</button></article><article class="reverb-card reverb-card-wet reveal"><p class="reverb-card-number">02</p><h3>Muita reverberação</h3><ul><li>o som permanece por mais tempo;</li><li>as notas podem se misturar;</li><li>existe maior sensação de envolvimento.</li></ul><button class="reverb-listen" data-reverb="long" type="button">Ouvir muita reverberação</button></article></div>
+  <div class="container reverb-table reveal"><div><span>Frequência</span><strong>Define grave ou agudo</strong><small>Medida em hertz</small><small>Relacionada à vibração</small></div><div><span>Reverberação</span><strong>Define quanto tempo o som permanece</strong><small>Medida em segundos</small><small>Relacionada ao ambiente</small></div></div>
+  <p class="container reverb-statement reveal">O instrumento produz a nota. O ambiente modifica como ela é ouvida.</p>
+</section>
+<section class="section sala-connection-section" data-section-name="Sala São Paulo e acústica" id="sala-acustica">
+  <div class="container sala-connection-layout">
+    <div class="sala-connection-copy reveal">
+      <p class="act-label">8 · Ligação com a Sala São Paulo</p>
+      <h2>A Sala São Paulo também participa da música</h2>
+      <p>Na Sala São Paulo, instrumentos diferentes produzem frequências e timbres variados. Depois de saírem dos instrumentos, as ondas sonoras percorrem o palco e a plateia, encontrando paredes, balcões, poltronas, piso e teto. Esses elementos refletem, absorvem e espalham o som, influenciando a reverberação percebida pelo público.</p>
+    </div>
+    <figure class="sala-connection-photo reveal"><img alt="Interior da Sala São Paulo com palco, plateia e teto acústico" loading="lazy" src="./public/assets/fotos/sala-sp-interior.webp"/></figure>
+  </div>
+  <div class="container sala-connection-topics">
+    <article class="reveal"><span>01</span><h3>Volume</h3><p>O volume de ar interfere no tempo de permanência do som.</p></article>
+    <article class="reveal"><span>02</span><h3>Materiais</h3><p>Madeira, tecidos, paredes e poltronas absorvem ou refletem o som de maneiras diferentes.</p></article>
+    <article class="reveal"><span>03</span><h3>Formato</h3><p>Balcões, paredes e superfícies ajudam a distribuir as ondas sonoras.</p></article>
+    <article class="reveal"><span>04</span><h3>Teto móvel</h3><p>A posição do teto modifica o volume acústico e ajuda a ajustar a resposta da sala.</p></article>
+  </div>
+  <p class="container sala-connection-transition reveal">Assim como um instrumento pode ser afinado, a resposta acústica de uma sala também pode ser ajustada.</p>
+</section>
+<section class="section hall-experiment-section" data-section-name="Experimento do teto móvel" id="acustica">
+  <div class="container hall-experiment-heading reveal">
+    <p class="act-label">9 · Experimento do teto móvel</p>
+    <h2>Afinando a Sala São Paulo</h2>
+    <p>Arraste o teto para cima ou para baixo e observe como a mudança de altura modifica o volume e a reverberação estimada.</p>
+  </div>
+  <div class="container hall-lab reveal">
+    <div class="hall-scene-wrap" id="hall-drag-area">
+      <canvas aria-label="Representação tridimensional da Sala São Paulo, com teto móvel, palco, poltronas e ondas sonoras" id="hall-canvas"></canvas>
+      <div aria-label="Altura do teto móvel" aria-valuemax="24" aria-valuemin="8" aria-valuenow="16" class="ceiling-grab-strip" id="ceiling-grab-strip" role="slider" tabindex="0"><span></span></div>
+      <div aria-hidden="true" class="ceiling-drag-hint" id="ceiling-drag-hint"><span>↕</span><strong>Arraste o teto</strong><small>para cima ou para baixo</small></div>
+      <span class="model-badge">Modelo didático · teto móvel, palco e plateia</span>
+    </div>
+    <div class="hall-controls simplified-hall-controls">
+      <p class="hall-kicker">Leitura matemática em tempo real</p>
+      <div class="hall-live-metrics"><div><span>Altura do teto</span><strong id="hall-height-out">16,0 m</strong></div><div><span>Volume didático</span><strong id="hall-volume-out">20.000 m³</strong></div><div><span>Reverberação estimada</span><strong id="hall-rt-result">1,79 s</strong></div></div>
+      <div aria-hidden="true" class="reverb-meter"><span id="reverb-meter-fill"></span></div><div class="reverb-labels"><span>mais clareza</span><span>mais envolvimento</span></div>
+      <div class="hall-reading-card"><span>Interpretação</span><strong id="hall-reading-result">Equilíbrio entre clareza e envolvimento</strong><p id="hall-explanation">Ao elevar o teto, o volume do modelo aumenta e o som leva mais tempo para perder energia.</p></div>
+      <div class="hall-formula-card"><strong>RT₆₀ = 0,161 · V/A</strong><div class="hall-formula-vars"><span><b>RT₆₀</b>: tempo de reverberação</span><span><b>V</b>: volume do ambiente</span><span><b>A</b>: absorção equivalente</span></div></div>
+      <button class="primary-button" id="hall-audio" type="button">Testar reverberação</button>
+    </div>
+  </div>
+  <p class="container hall-experiment-note reveal">Teto mais baixo: menor volume, menor reverberação estimada e maior sensação de clareza. Teto mais alto: maior volume, maior reverberação estimada e maior sensação de envolvimento.</p>
+  <p class="container hall-experiment-note reveal">Este é um modelo matemático didático inspirado na Sala São Paulo. Ele não representa uma medição oficial nem uma simulação acústica completa.</p>
+</section>
+
+
+<section class="section conclusions-section" data-section-name="Conclusões" id="conclusoes">
+  <div class="container section-heading section-heading-dark reveal">
+    <p class="act-label">10 · Conclusões</p>
+    <h2>O que aprendemos?</h2>
+  </div>
+  <div class="container conclusion-grid">
+    <article class="reveal"><span>01</span><h3>A orquestra transforma diferenças em harmonia</h3><p>Instrumentos de cordas, madeiras, metais e percussão têm tamanhos, timbres, intensidades e formas de produzir som diferentes. Cada família cumpre uma função, mas o equilíbrio entre elas cria uma única obra musical.</p><strong>Instrumentos diferentes, um único resultado.</strong></article>
+    <article class="reveal"><span>02</span><h3>O som pode ser sentido e também medido</h3><p>Todo som começa como vibração e se transforma em onda sonora. A frequência indica se uma nota é grave ou aguda, enquanto o instrumento e o ambiente influenciam sua propagação.</p><strong>Cada nota que ouvimos possui uma frequência.</strong></article>
+    <article class="reveal"><span>03</span><h3>Cada instrumento é um projeto matemático</h3><p>Comprimento, tensão, densidade, espessura, raio, material e formato são combinados para produzir frequências específicas. A Matemática orienta cordas, tubos, furos, válvulas, membranas e barras antes de o instrumento ser tocado.</p><strong>Antes de virar música, o som começa como medida e cálculo.</strong></article>
+    <article class="reveal"><span>04</span><h3>A sala também participa da música</h3><p>Volume, formato e materiais modificam a reflexão e a reverberação das ondas sonoras. Na Sala São Paulo, o teto móvel mostra como Matemática e arquitetura adaptam o ambiente a diferentes apresentações.</p><strong>O instrumento produz o som; a sala transforma a experiência.</strong></article>
+  </div>
+</section>
+<section class="section thank-you-section" data-section-name="Agradecimento" id="agradecimento">
+  <div class="container thank-you-content reveal">
+    <p>Esse foi o nosso trabalho</p>
+    <h2>Obrigado pela atenção!</h2>
+    <canvas aria-label="Modelo 3D do professor Marcio. Arraste para girar." id="thank-you-mascot-canvas"></canvas>
+    <button class="primary-button" id="thank-you-audio" type="button">Falar tchau pro Márcio</button>
+  </div>
+</section>
+</main>
+</div>
+
+<dialog aria-labelledby="instrument-dialog-title" class="instrument-dialog" id="instrument-dialog">
+  <button aria-label="Fechar informações do instrumento" class="dialog-close" id="instrument-dialog-close" type="button">×</button>
+  <figure class="instrument-dialog-model"><canvas aria-label="Modelo tridimensional do instrumento" id="instrument-dialog-model"></canvas><div aria-label="Controle de zoom do modelo" class="instrument-model-zoom"><button aria-label="Aproximar instrumento" id="instrument-model-zoom-in" type="button">+</button><button aria-label="Afastar instrumento" id="instrument-model-zoom-out" type="button">−</button></div><figcaption>Arraste para girar o modelo</figcaption></figure>
+  <div class="instrument-dialog-copy"><p id="instrument-dialog-family"></p><h2 id="instrument-dialog-title"></h2><dl id="instrument-dialog-details"></dl></div>
+</dialog>
+<dialog class="presentation-dialog" id="presentation-dialog">
+<button aria-label="Fechar modo apresentação" class="dialog-close" id="presentation-close" type="button">×</button>
+<p class="eyebrow">Modo apresentação</p>
+<div class="presentation-slide" id="presentation-slide"></div>
+<div class="presentation-controls"><button id="presentation-prev" type="button">Anterior</button><span id="presentation-counter"></span><button id="presentation-next" type="button">Próximo</button></div>
+</dialog>
+<div aria-live="polite" class="toast" id="toast" role="status"></div>
+<script src="./src/main.js" type="module"></script>
+</body>
+</html>

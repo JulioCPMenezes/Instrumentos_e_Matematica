@@ -1,0 +1,23 @@
+INSTRUMENTOS MUSICAIS E MATEMATICA - COMO RODAR
+
+WINDOWS
+1. Extraia o arquivo ZIP.
+2. Abra a pasta extraida.
+3. De dois cliques em rodar-site.bat.
+4. Mantenha a janela preta aberta.
+5. Acesse http://localhost:4173 caso o navegador nao abra automaticamente.
+6. Para encerrar, pressione Ctrl + C ou feche a janela preta.
+
+TERMINAL
+1. Abra o terminal dentro da pasta do projeto.
+2. Execute: npm run dev
+3. Acesse: http://localhost:4173
+
+REQUISITO
+Node.js 18 ou superior.
+
+TESTES
+Execute: npm test
+
+BUILD
+Execute: npm run build

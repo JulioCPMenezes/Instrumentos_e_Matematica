@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+ <defs>
+  <radialGradient id="g" cx="50%" cy="42%" r="75%"><stop offset="0" stop-color="#8c5eb5" stop-opacity=".24"/><stop offset=".55" stop-color="#151b27"/><stop offset="1" stop-color="#07080b"/></radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ </defs>
+ <rect width="900" height="560" rx="28" fill="url(#g)"/>
+ <circle cx="745" cy="125" r="95" fill="#8c5eb5" opacity=".09" filter="url(#glow)"/>
+ <text x="72" y="72" fill="#e3c679" font-family="Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="3">SÉCULO XIX</text>
+ <text x="72" y="128" fill="#fffdf8" font-family="Georgia,serif" font-size="38">Um som como soma de ondas</text>
+ <text x="760" y="145" text-anchor="middle" fill="#f7e8b5" font-family="Georgia,serif" font-size="64" filter="url(#glow)">Σ</text>
+ <rect x="125" y="205" width="34" height="210" rx="17" fill="#8c5eb5" opacity="1.0"/><rect x="197" y="265" width="34" height="150" rx="17" fill="#8c5eb5" opacity="0.9299999999999999"/><rect x="269" y="305" width="34" height="110" rx="17" fill="#8c5eb5" opacity="0.86"/><rect x="341" y="327" width="34" height="88" rx="17" fill="#8c5eb5" opacity="0.79"/><rect x="413" y="345" width="34" height="70" rx="17" fill="#8c5eb5" opacity="0.72"/><rect x="485" y="357" width="34" height="58" rx="17" fill="#8c5eb5" opacity="0.6499999999999999"/><rect x="557" y="367" width="34" height="48" rx="17" fill="#8c5eb5" opacity="0.58"/><rect x="629" y="375" width="34" height="40" rx="17" fill="#8c5eb5" opacity="0.51"/><rect x="701" y="381" width="34" height="34" rx="17" fill="#8c5eb5" opacity="0.43999999999999995"/><path d="M85 425 H815" stroke="#f7e8b5" stroke-width="3" opacity=".7"/>
+ <path d="M72 482 H828" stroke="#c8a24a" stroke-width="1.5" opacity=".32"/>
+ <text x="72" y="520" fill="#aeb7c6" font-family="Arial,sans-serif" font-size="16">MATEMÁTICA · MÚSICA · HISTÓRIA</text>
+ </svg>

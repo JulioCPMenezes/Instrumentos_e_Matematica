@@ -1,0 +1,76 @@
+/* Famílias da orquestra — painel didático inspirado na referência visual. */
+.families-section { margin-top: clamp(120px, 14vw, 210px); background: #f8f5ed; }
+.families-heading { text-align: center; }
+.families-heading h2 { margin: 0; color: #27231f; font-family: var(--serif); font-size: clamp(2.9rem, 5.4vw, 4.9rem); }
+.families-heading p { margin: 8px auto 0; color: #4d4740; font-family: var(--serif); font-size: clamp(1.05rem, 2vw, 1.35rem); }
+.family-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 28px auto 18px; padding: 0; background: none; border-bottom: 0; overflow: visible; }
+.family-tabs button { flex: 0 1 auto; min-height: 38px; padding: 7px 22px; color: #342e2a; background: transparent; border: 1px solid #7b3646; border-radius: 999px; box-shadow: none; font-family: var(--serif); font-size: 1rem; font-weight: 500; }
+.family-tabs button[aria-selected='true'],
+.family-tabs button.active { color: #fff; background: #7b3646; box-shadow: none; }
+.families-section .family-summary { display: block; max-width: 1050px; margin-bottom: 28px; padding: clamp(26px, 4vw, 42px); color: #2b2824; background: transparent; border: 1px solid var(--family-color); border-radius: 22px; }
+.families-section .family-summary h3 { margin: 0; color: var(--family-color); font-family: var(--serif); font-size: clamp(2rem, 4vw, 2.8rem); }
+.families-section .family-summary p { max-width: none; color: #332f2b; font-size: 1rem; line-height: 1.55; }
+.families-section .family-highlight { margin: 10px 0 18px; color: #3f3934; font-family: var(--serif); font-size: 1.25rem !important; }
+.family-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0; }
+.family-methods article { padding: 14px; background: rgba(255,255,255,.44); border: 1px solid color-mix(in srgb, var(--family-color) 55%, transparent); border-radius: 12px; }
+.family-methods h4 { margin: 0 0 7px; color: var(--family-color); font-family: var(--serif); font-size: 1.1rem; }
+.family-methods p { margin: 0 0 8px; font-size: .86rem !important; }
+.family-methods small { color: #625a52; font-size: .75rem; line-height: 1.35; }
+.families-section .family-math { margin: 22px 0 12px; }
+.families-section .family-math strong { color: var(--family-color); }
+.families-section .family-formula { display: inline-block; padding: 10px 18px; color: var(--family-color); background: transparent; border: 1px solid var(--family-color); border-radius: 8px; font-family: var(--serif); font-size: 1.15rem; }
+.family-instruments-heading { margin-bottom: 18px; text-align: center; }
+.family-instruments-heading p { margin: 0; color: #312d29; font-family: var(--serif); font-size: clamp(1.8rem, 3.4vw, 2.45rem); }
+.families-section .instrument-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; max-width: 1040px; }
+.families-section .instrument-card { display: grid; min-height: 290px; padding: 18px; color: #312d29; background: rgba(255,255,255,.35); border: 1px solid #7b3646; border-radius: 16px; box-shadow: none; text-align: center; cursor: pointer; }
+.families-section .instrument-card:hover, .families-section .instrument-card:focus-visible { transform: translateY(-5px); background: #fffdf8; box-shadow: 0 12px 22px rgba(71, 40, 28, .12); }
+.families-section .instrument-card figure { height: 158px; margin: 0 0 12px; background: #dfd2cf; border-radius: 16px; }
+.families-section .instrument-card figure::after { display: none; }
+.families-section .instrument-card img { padding: 12px; mix-blend-mode: multiply; }
+.families-section .instrument-card .instrument-placeholder { display: grid; width: 100%; height: 100%; place-items: center; padding: 18px; color: #7b3646; border: 1px dashed rgba(123, 54, 70, .5); border-radius: 12px; font-family: var(--serif); font-size: 1.2rem; line-height: 1.15; }
+.families-section .instrument-card span { font-family: var(--serif); font-size: 1.28rem; }
+.families-section .instrument-card small { margin-top: 5px; color: #776f68; font-size: .84rem; }
+.families-section .instrument-listen-button { justify-self: center; margin-top: 12px; padding: 9px 14px; color: #fff; background: #c8a24a; border: 0; border-radius: 999px; box-shadow: 0 5px 12px rgba(156, 118, 40, .2); font-size: .74rem; font-weight: 800; }
+.families-section .instrument-listen-button:hover, .families-section .instrument-listen-button:focus-visible { background: #9c7628; transform: translateY(-1px); }
+.families-section .instrument-listen-button.is-playing { background: #7b3646; box-shadow: 0 0 0 4px rgba(123, 54, 70, .18); }
+.families-section .instrument-listen-button:disabled { cursor: not-allowed; opacity: .48; }
+.instrument-carousel { display: grid; grid-template-columns: 46px minmax(0, 1fr) 46px; width: min(100%, 1160px); margin-inline: auto; gap: 14px; align-items: center; }
+.families-section .instrument-carousel .instrument-grid { justify-self: center; }
+.families-section .instrument-grid { overflow: hidden; }
+.instrument-carousel-control { display: grid; width: 46px; height: 46px; place-items: center; padding: 0; color: #fff; background: #b9343f; border: 0; border-radius: 50%; box-shadow: 0 8px 18px rgba(126, 33, 40, .24); font-size: 1.45rem; font-weight: 800; transition: transform .2s ease, background .2s ease, opacity .2s ease; }
+.instrument-carousel-control:hover:not(:disabled), .instrument-carousel-control:focus-visible:not(:disabled) { background: #942530; transform: scale(1.08); }
+.instrument-carousel-control:disabled { cursor: not-allowed; opacity: .32; }
+.instrument-grid.is-leaving-to-left { animation: instrument-cards-leave-left .22s ease-in forwards; }
+.instrument-grid.is-leaving-to-right { animation: instrument-cards-leave-right .22s ease-in forwards; }
+.instrument-grid.is-entering-from-right { animation: instrument-cards-enter-right .32s ease-out both; }
+.instrument-grid.is-entering-from-left { animation: instrument-cards-enter-left .32s ease-out both; }
+@keyframes instrument-cards-leave-left { to { opacity: 0; transform: translateX(-9%); } }
+@keyframes instrument-cards-leave-right { to { opacity: 0; transform: translateX(9%); } }
+@keyframes instrument-cards-enter-right { from { opacity: 0; transform: translateX(9%); } to { opacity: 1; transform: translateX(0); } }
+@keyframes instrument-cards-enter-left { from { opacity: 0; transform: translateX(-9%); } to { opacity: 1; transform: translateX(0); } }
+.instrument-dialog { width: min(920px, calc(100% - 32px)); max-width: 920px; padding: 0; color: #2c2824; background: #faf7f0; border: 0; border-radius: 20px; box-shadow: 0 24px 80px rgba(0,0,0,.42); }
+.instrument-dialog::backdrop { background: rgba(10, 12, 17, .65); backdrop-filter: blur(3px); }
+.instrument-dialog { grid-template-columns: minmax(250px, .9fr) minmax(0, 1.1fr); overflow: hidden; }
+.instrument-dialog[open] { display: grid; }
+.instrument-dialog figure { display: grid; min-height: 360px; margin: 0; place-items: center; background: #ded1ce; }
+.instrument-dialog-model { position: relative; overflow: hidden; background: radial-gradient(circle at 50% 36%, #4b5870, #192233 66%, #101722); }
+.instrument-dialog-model::before { content: ''; position: absolute; inset: 14%; border: 1px solid rgba(227, 198, 121, .22); border-radius: 50%; pointer-events: none; }
+.instrument-dialog-model canvas { display: block; width: 100%; height: 100%; min-height: 360px; cursor: grab; touch-action: none; }
+.instrument-dialog-model canvas.is-rotating { cursor: grabbing; }
+.instrument-dialog-model figcaption { position: absolute; bottom: 18px; left: 50%; padding: 7px 12px; transform: translateX(-50%); color: rgba(255,255,255,.82); background: rgba(8, 13, 24, .68); border: 1px solid rgba(255,255,255,.15); border-radius: 999px; font-size: .72rem; font-weight: 700; white-space: nowrap; pointer-events: none; }
+.instrument-model-zoom { position: absolute; z-index: 1; top: 16px; right: 16px; display: grid; gap: 7px; }
+.instrument-model-zoom button { display: grid; width: 34px; height: 34px; place-items: center; padding: 0; color: #fff; background: #050609; border: 1px solid rgba(255,255,255,.34); border-radius: 5px; box-shadow: 0 5px 14px rgba(0,0,0,.28); font-size: 1.4rem; font-weight: 600; line-height: 1; }
+.instrument-model-zoom button:hover, .instrument-model-zoom button:focus-visible { background: #252b36; border-color: #e3c679; }
+.instrument-dialog-copy { padding: clamp(30px, 5vw, 54px); }
+.instrument-dialog-copy > p { margin: 0; font-size: .75rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.instrument-dialog-copy h2 { margin: 9px 0 24px; font-family: var(--serif); font-size: clamp(2.1rem, 5vw, 3.5rem); }
+.instrument-dialog-copy dl { display: grid; gap: 14px; margin: 0; }
+.instrument-dialog-copy dl div { padding-bottom: 13px; border-bottom: 1px solid rgba(91, 58, 42, .14); }
+.instrument-dialog-copy dt { color: #7b3646; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.instrument-dialog-copy dd { margin: 4px 0 0; color: #4b443d; line-height: 1.45; }
+.instrument-dialog-copy dl div:first-child dd { display: flex; gap: 10px; align-items: center; justify-content: space-between; }
+.instrument-frequency-button { flex: 0 0 auto; padding: 5px 9px; color: #7b3646; background: transparent; border: 1px solid #7b3646; border-radius: 999px; font-size: .7rem; font-weight: 800; }
+.instrument-frequency-button:hover { color: #fff; background: #7b3646; }
+.instrument-dialog .dialog-close { z-index: 1; color: #fff; background: #7b3646; }
+@media (prefers-reduced-motion: reduce) { .instrument-grid.is-leaving-to-left, .instrument-grid.is-leaving-to-right, .instrument-grid.is-entering-from-right, .instrument-grid.is-entering-from-left { animation: none; } }
+@media (max-width: 760px) { .families-section { margin-top: 48px; }.family-tabs { justify-content: center; }.family-methods, .families-section .instrument-grid, .instrument-dialog[open] { grid-template-columns: 1fr; }.families-section .instrument-grid { max-width: none; }.instrument-carousel { grid-template-columns: 38px minmax(0, 1fr) 38px; gap: 8px; }.instrument-carousel-control { width: 38px; height: 38px; font-size: 1.15rem; }.instrument-dialog figure, .instrument-dialog-model canvas { min-height: 240px; }.instrument-dialog-copy { padding: 28px; } }
