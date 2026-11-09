@@ -18,7 +18,7 @@ concurrency:
 jobs:
   ci:
     name: CI - Testes e build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Baixar o codigo
         uses: actions/checkout@v4
@@ -33,6 +33,28 @@ jobs:
 
       - name: Gerar versao de producao
         run: npm run build
+
+      - name: Otimizar MP4 usados como audio na publicacao
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+          shopt -s nullglob
+          files=(dist/public/assets/audio/instrumentos/*.mp4)
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "Nenhum arquivo MP4 encontrado para otimizar" >&2
+            exit 1
+          fi
+          for file in "${files[@]}"; do
+            temp="${file%.mp4}.audio.mp4"
+            ffmpeg -hide_banner -loglevel error -nostdin -y -i "$file" -map 0:a:0 -vn -c:a aac -b:a 96k "$temp"
+            ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of csv=p=0 "$temp" | grep -qx aac
+            mv "$temp" "$file"
+          done
+          du -sh dist
 
       - name: Verificar arquivos da publicacao
         run: |
